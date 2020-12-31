@@ -10,40 +10,72 @@ class Results
     /**
      * Results constructor.
      * @param PDO $db
+     * @param CarsDict $carData
      */
     public function __construct(
-        private PDO $db
+        private PDO $db,
+        private CarsDict $carData
     ){}
 
     /**
-     * @param string $sort either ASC or DESC - sorting records by time
      * @return array|null return array with results or null
      */
-    private function getResultsFromDB(string $sort): ?array
+    private function getResultsFromDB(): ?array
     {
-        $sort = htmlspecialchars($sort, ENT_QUOTES);
-        if($sort == 'ASC' || $sort == 'DESC'){
-            $res = $this->db->prepare("SELECT first_name, last_name, car, time, s1, s2, s3 FROM `laps`
-                    JOIN drivers on laps.driver = drivers.id
-                    ORDER BY time $sort;");
-            $res->execute();
+        $res = $this->db->prepare("SELECT concat(last_name, ' ', first_name) as driver, drivers.id, car, time, s1, s2, s3 FROM `laps`
+                JOIN drivers on laps.driver = drivers.id
+                ORDER BY driver, car, time;");
+        $res->execute();
 
-            $resArray = array();
-            while ($row = $res->fetch(PDO::FETCH_ASSOC)) {
-                $row['time'] = $this->formatSeconds($row['time']); //to parse
-                $resArray[] = $row;
+        $resArray = array();
+        $prevCar = null;
+        $prevDriver = null;
+        while ($row = $res->fetch(PDO::FETCH_ASSOC)) {
+            $row['time'] = $this->formatTime($row['time']);
+            $row['s1'] = $this->formatTime($row['s1']);
+            $row['s2'] = $this->formatTime($row['s2']);
+            $row['s3'] = $this->formatTime($row['s3']);
+            $carDataTmp = $this->carData->getCarName($row['car']);
+            $row['carName'] = $carDataTmp['name']." [".$carDataTmp['year']."]";
+            $row['class'] = $carDataTmp['class'];
+
+            if((empty($prevDriver) || $prevDriver!=$row['id']) || empty($prevCar) || $prevCar!=$row['car']){
+                $prevDriver = $row['id'];
+                $prevCar = $row['car'];
+                $resArray[] = array(
+                    'driver' => $row['driver'],
+                    'car' => $row['carName'],
+                    'class' => $row['class'],
+                    'time' => $row['time'],
+                    's1' => $row['s1'],
+                    's2' => $row['s2'],
+                    's3' => $row['s3'],
+                    '_children' => array()
+                );
+
+                end($resArray);
+                $pushIndex = key($resArray);
             }
 
-            return $resArray;
-        } else
-            return null;
+            $resArray[$pushIndex]['_children'][] = array(
+                'driver' => $row['driver'],
+                'car' => $row['carName'],
+                'class' => $row['class'],
+                'time' => $row['time'],
+                's1' => $row['s1'],
+                's2' => $row['s2'],
+                's3' => $row['s3']
+            );
+        }
+
+        return $resArray;
     }
 
     /**
      * @param string $sort either ASC or DESC - sorting records by time
      * @return bool|string
      */
-    public function getResultJson($sort = 'ASC'): bool|string
+    public function getResultJson(string $sort = 'ASC'): bool|string
     {
         $sort = strtoupper($sort);
 
@@ -52,21 +84,23 @@ class Results
         return json_encode($result);
     }
 
-    private function formatSeconds( $seconds )
+    /**
+     * @param int $time in miliseconds
+     * @return string formated time
+     */
+    private function formatTime(int $time): string
     {
-        $hours = 0;
-        $milliseconds = str_replace( "0.", '', $seconds - floor( $seconds ) );
+        $ms = $time % 1000;
+        $ms = ($ms<100 && $ms>=10) ? "0".$ms : $ms;
+        $ms = ($ms<10) ? "00".$ms : $ms;
+        $time = floor($time / 1000);
 
-        if ( $seconds > 3600 )
-        {
-            $hours = floor( $seconds / 3600 );
-        }
-        $seconds = $seconds % 3600;
+        $seconds = $time % 60;
+        $seconds = ($seconds<10) ? "0".$seconds : $seconds;
+        $time = floor($time / 60);
 
+        $minutes = $time % 60;
 
-        return str_pad( $hours, 2, '0', STR_PAD_LEFT )
-            . gmdate( ':i:s', $seconds )
-            . ($milliseconds ? ".$milliseconds" : '')
-            ;
+        return $minutes.":".$seconds.".".$ms;
     }
 }

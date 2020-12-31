@@ -2,21 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5eac3bc2-c43d-40f0-a1a2-b3b2c6487372" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/func/Results.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/func/config.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/script/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/script/lib/tabulator.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/script/require.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/style/scss/index.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/getResults.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/func/.htaccess" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/func/CarsDict.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/func/TracksDict.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/script/lib/domReady.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/style/scss/defaults.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/style/scss/fonts.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/acc_web_results.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/acc_web_results.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/func/Results.php" beforeDir="false" afterPath="$PROJECT_DIR$/func/Results.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/script/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/script/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/style/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/scss/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/style/scss/index.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/tabulator.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/style/tabulator.min.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings">
+  <component name="ComposerSettings" doNotAsk="true">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution>
       <interpreter composer="composer" />
@@ -25,14 +33,19 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
-        <option value="SCSS File" />
         <option value="composer.json" />
+        <option value="SCSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/composer" />
+    </include_path>
   </component>
   <component name="ProjectId" id="1mOPybkV81ijED87VO89yojGMpl" />
   <component name="ProjectViewState">
@@ -66,7 +79,8 @@
       <option name="presentableId" value="Default" />
       <updated>1609361919617</updated>
       <workItem from="1609361922000" duration="3439000" />
-      <workItem from="1609366404968" duration="8877000" />
+      <workItem from="1609366404968" duration="8909000" />
+      <workItem from="1609420275563" duration="13813000" />
     </task>
     <servers />
   </component>

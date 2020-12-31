@@ -1,8 +1,6 @@
 <?php
+ob_start();
 require_once __DIR__ . "/func/config.php";
-
-//$res = new Results(dbConnection());
-//var_dump($res->getResultJson());
 ?>
 
 <!doctype html>
@@ -20,6 +18,12 @@ require_once __DIR__ . "/func/config.php";
     <link href="style/tabulator.min.css" rel="stylesheet">
 </head>
 <body>
+    <header id="topBar">
+        <h3>ACCResults</h3>
+    </header>
     <div id="resultTable"></div>
 </body>
 </html>
+<?php
+ob_end_flush();
+?>
