@@ -19,7 +19,7 @@ require_once __DIR__ . "/func/config.php";
 </head>
 <body>
     <header id="topBar">
-        <h3>ACCResults</h3>
+        <h3>ACCResults <?= ver ?></h3>
     </header>
     <div id="resultTable"></div>
 </body>

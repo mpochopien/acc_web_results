@@ -2,22 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5eac3bc2-c43d-40f0-a1a2-b3b2c6487372" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/api/getResults.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/func/.htaccess" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/func/CarsDict.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/func/TracksDict.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/script/lib/domReady.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/style/scss/defaults.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/style/scss/fonts.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/acc_web_results.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/acc_web_results.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/func/Results.php" beforeDir="false" afterPath="$PROJECT_DIR$/func/Results.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/script/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/script/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/defaults.css" beforeDir="false" afterPath="$PROJECT_DIR$/style/defaults.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/style/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/style/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/scss/defaults.scss" beforeDir="false" afterPath="$PROJECT_DIR$/style/scss/defaults.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/style/scss/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/style/scss/index.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/style/tabulator.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/style/tabulator.min.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +71,7 @@
       <updated>1609361919617</updated>
       <workItem from="1609361922000" duration="3439000" />
       <workItem from="1609366404968" duration="8909000" />
-      <workItem from="1609420275563" duration="13813000" />
+      <workItem from="1609420275563" duration="14502000" />
     </task>
     <servers />
   </component>

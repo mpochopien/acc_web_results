@@ -62,6 +62,10 @@ html {
       grid-auto-rows: 100%;
       justify-items: center;
       align-items: center;
+
+      h3 {
+        grid-column: 1 / -1;
+      }
     }
 
     margin: 0;
