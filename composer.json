@@ -1,0 +1,11 @@
+{
+  "autoload": {
+    "psr-4": {
+      "": "func/"
+    }
+  },
+  "require": {
+    "ext-pdo": "*",
+    "ext-json": "*"
+  }
+}
