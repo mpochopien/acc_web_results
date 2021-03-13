@@ -62,7 +62,7 @@ class CarsDict
             9 => array(
                 "name" => "Porsche 991 II GT3 Cup",
                 "year" => 2017,
-                "class" => "GT3"
+                "class" => "CUP"
             ),
             10 => array(
                 "name" => "Nissan GT-R Nismo GT3",
@@ -107,7 +107,7 @@ class CarsDict
             18 => array(
                 "name" => "Lamborghini Huracan SuperTrofeo",
                 "year" => 2015,
-                "class" => "GT3"
+                "class" => "ST"
             ),
             19 => array(
                 "name" => "Audi R8 LMS Evo",
