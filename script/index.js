@@ -3,7 +3,29 @@ require.config({
 });
 
 requirejs(["lib/tabulator.min", "lib/domReady"], (tab) => {
-    new tab("#resultTable", {
+    (() => {
+        fetch('api/getTracks.php', {
+            method: 'POST',
+            credentials: 'include'
+        }).then(tracks => tracks.json())
+            .then(tracks => {
+                for(let track in tracks){
+                    let link = document.createElement('a');
+                    link.appendChild(document.createTextNode(tracks[track]['name']));
+                    document.querySelector('#trackListBar').appendChild(link);
+
+                    link.addEventListener('click', () => {
+                        resultsTab.setFilter("track", "=", tracks[track]['name']);
+                    });
+                }
+            });
+    })();
+
+    document.querySelector("#resetFilter").addEventListener("click", ()=>{
+        resultsTab.clearFilter();
+    });
+
+    let resultsTab = new tab("#resultTable", {
         layout: "fitDataStretch",
         dataTree: true,
         ajaxURL: "api/getResults.php",
@@ -20,7 +42,8 @@ requirejs(["lib/tabulator.min", "lib/domReady"], (tab) => {
                 ]
             },
             {title:"Car", field:"car"},
+            {title:"Track", field:"track"},
             {title:"Class", field:"class"}
-        ],
+        ]
     });
 });

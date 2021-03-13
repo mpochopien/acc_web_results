@@ -21,6 +21,11 @@ require_once __DIR__ . "/func/config.php";
     <header id="topBar">
         <h3>ACCResults <?= ver ?></h3>
     </header>
+
+    <div id="trackListBar">
+        <a id="resetFilter">Reset</a>
+    </div>
+
     <div id="resultTable"></div>
 </body>
 </html>

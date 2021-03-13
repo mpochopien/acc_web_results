@@ -22,6 +22,6 @@ function dbConnection(): PDO
 }
 
 //OTHER CONFIG
-define("ver", "0.1");
+define("ver", "1.0");
 
-define("front_ver", "1");
+define("front_ver", "2");

@@ -2,7 +2,7 @@
 <dataSource name="ACCResults">
   <database-model serializer="dbm" dbms="MYSQL" family-id="MYSQL" format-version="4.20">
     <root id="1">
-      <ServerVersion>8.0.22</ServerVersion>
+      <ServerVersion>8.0.23</ServerVersion>
       <DefaultEngine>InnoDB</DefaultEngine>
       <DefaultTmpEngine>InnoDB</DefaultTmpEngine>
       <DefaultCasing>exact</DefaultCasing>
@@ -932,6 +932,10 @@
     <column id="289" parent="278" name="s3">
       <Position>6</Position>
       <DataType>bigint|0s</DataType>
+    </column>
+    <column id="290" parent="278" name="track">
+      <Position>7</Position>
+      <DataType>varchar(100)|0s</DataType>
     </column>
   </database-model>
 </dataSource>

@@ -11,10 +11,12 @@ class Results
      * Results constructor.
      * @param PDO $db
      * @param CarsDict $carData
+     * @param TracksDict $trackData
      */
     public function __construct(
         private PDO $db,
-        private CarsDict $carData
+        private CarsDict $carData,
+        private TracksDict $trackData
     ){}
 
     /**
@@ -22,9 +24,12 @@ class Results
      */
     private function getResultsFromDB(): ?array
     {
-        $res = $this->db->prepare("SELECT concat(last_name, ' ', first_name) as driver, drivers.id, car, time, s1, s2, s3 FROM `laps`
+        $trackFilter = $this->getTrackFilter();
+
+        $res = $this->db->prepare("SELECT concat(last_name, ' ', first_name) as driver, drivers.id, car, time, s1, s2, s3, track FROM `laps`
                 JOIN drivers on laps.driver = drivers.id
-                ORDER BY driver, car, time;");
+                $trackFilter
+                ORDER BY driver, car, time, track;");
         $res->execute();
 
         $resArray = array();
@@ -38,6 +43,7 @@ class Results
             $carDataTmp = $this->carData->getCarName($row['car']);
             $row['carName'] = $carDataTmp['name']." [".$carDataTmp['year']."]";
             $row['class'] = $carDataTmp['class'];
+            $row['track'] = $this->trackData->getTrackName($row['track'])['name'] ?? null;
 
             if((empty($prevDriver) || $prevDriver!=$row['id']) || empty($prevCar) || $prevCar!=$row['car']){
                 $prevDriver = $row['id'];
@@ -50,6 +56,7 @@ class Results
                     's1' => $row['s1'],
                     's2' => $row['s2'],
                     's3' => $row['s3'],
+                    'track' => $row['track'],
                     '_children' => array()
                 );
 
@@ -102,5 +109,13 @@ class Results
         $minutes = $time % 60;
 
         return $minutes.":".$seconds.".".$ms;
+    }
+
+    /**
+     * @return string|null return track name to use in filter from GET
+     */
+    private function getTrackFilter(): ?string
+    {
+        return (!empty($_GET['track'])) ? "WHERE track like '" . htmlspecialchars($_GET['track'], ENT_QUOTES) ."%'" : null;
     }
 }
