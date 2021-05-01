@@ -119,7 +119,6 @@ class TracksDict
      */
     public function getTrackName(string $trackName): array|null
     {
-//        echo preg_replace(self::TRACK_NAME_REGEX, '', $trackName)." ---- ";
         return $this->translateTrackName(preg_replace(self::TRACK_NAME_REGEX, '', $trackName));
     }
 
@@ -129,10 +128,12 @@ class TracksDict
      */
     private function translateTrackName(string $trackId): array|null
     {
-        if(!empty(self::TRACK_LIST[$trackId]))
+        if (!empty(self::TRACK_LIST[$trackId])) {
             return self::TRACK_LIST[$trackId];
-        else
+        }
+        else {
             return null;
+        }
     }
 
     /**

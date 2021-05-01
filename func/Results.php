@@ -28,13 +28,13 @@ class Results
 
         $res = $this->db->prepare("SELECT concat(last_name, ' ', first_name) as driver, drivers.id, car, time, s1, s2, s3, track FROM `laps`
                 JOIN drivers on laps.driver = drivers.id
-                $trackFilter
-                ORDER BY driver, car, time, track;");
+                ORDER BY driver, car, track, time;");
         $res->execute();
 
         $resArray = array();
         $prevCar = null;
         $prevDriver = null;
+        $prevTrack = null;
         while ($row = $res->fetch(PDO::FETCH_ASSOC)) {
             $row['time'] = $this->formatTime($row['time']);
             $row['s1'] = $this->formatTime($row['s1']);
@@ -43,11 +43,13 @@ class Results
             $carDataTmp = $this->carData->getCarName($row['car']);
             $row['carName'] = $carDataTmp['name']." [".$carDataTmp['year']."]";
             $row['class'] = $carDataTmp['class'];
-            $row['track'] = $this->trackData->getTrackName($row['track'])['name'] ?? null;
+            $trackId = $row['track'];
+            $row['track'] = $this->trackData->getTrackName($trackId)['name'] ?? null;
 
-            if((empty($prevDriver) || $prevDriver!=$row['id']) || empty($prevCar) || $prevCar!=$row['car']){
+            if((empty($prevDriver) || $prevDriver!=$row['id']) || empty($prevCar) || $prevCar!=$row['car'] || empty($prevTrack) || $prevTrack!=$trackId){
                 $prevDriver = $row['id'];
                 $prevCar = $row['car'];
+                $prevTrack = $trackId;
                 $resArray[] = array(
                     'driver' => $row['driver'],
                     'car' => $row['carName'],
