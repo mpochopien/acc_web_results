@@ -10,7 +10,7 @@ define("db_name", "accresults");
 
 define("db_user", "accresults");
 
-define("db_passwd", "password");
+define("db_passwd", "kHLCSbt4fS27x9va3Mfq");
 
 function dbConnection(): PDO
 {

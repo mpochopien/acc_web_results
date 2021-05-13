@@ -1,3 +1,4 @@
-.idea/*
+style/*.map
+.idea
+vendor
 style/sass_watcher.bat
-func/config.php
