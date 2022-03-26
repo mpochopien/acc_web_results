@@ -144,6 +144,36 @@ class CarsDict
                 "year" => 2020,
                 "class" => "GT3"
             ),
+            26 => array(
+                "name" => "Ferrari 488 Challenge Evo",
+                "year" => 2020,
+                "class" => "CHL"
+            ),
+            27 => array(
+                "name" => "BMW M2 CS Racing",
+                "year" => 2020,
+                "class" => "TCX"
+            ),
+            28 => array(
+                "name" => "Porsche 911 GT3 Cup (Type 992)",
+                "year" => 2021,
+                "class" => "CUP"
+            ),
+            29 => array(
+                "name" => "Lamborghini Huracan Super Trofeo EVO2",
+                "year" => 2021,
+                "class" => "ST"
+            ),
+            30 => array(
+                "name" => "BMW M4 GT3",
+                "year" => 2022,
+                "class" => "GT3"
+            ),
+            31 => array(
+                "name" => "Audi R8 LMS GT3 evo II",
+                "year" => 2022,
+                "class" => "GT3"
+            ),
             50 => array(
                 "name" => "Alpine A110 GT4",
                 "year" => 2018,
